@@ -25,8 +25,6 @@ public class EditVehicleOdometer2 {
         driver.get("https://qa2.vytrack.com/user/login");
         driver.findElement(By.id("prependedInput")).sendKeys("user161");
         driver.findElement(By.id("prependedInput2")).sendKeys("UserUser123" + Keys.ENTER);
-        System.out.print("Hi");
-
     }
 
     @Test
