@@ -29,7 +29,7 @@ public class EditVehicleOdometer2 {
 
     @Test
     public void EditVehicleOdometer() throws InterruptedException {
-//        5. Truck driver navigate "Fleet" module and click "Vehicle Odometers" sub module
+//       5. Truck driver navigate "Fleet" module and click "Vehicle Odometers" sub module
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         driver.findElement(By.className("unclickable")).click();
         Thread.sleep(2000);
