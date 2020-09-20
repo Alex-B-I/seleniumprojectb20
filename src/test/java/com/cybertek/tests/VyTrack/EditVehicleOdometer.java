@@ -82,7 +82,8 @@ public class EditVehicleOdometer {
         WebElement fieldUnit = driver.findElement(By.xpath("//*[@onclick='return false;']"));
         fieldUnit.click();
         Thread.sleep(1000);
-        WebElement fieldKm = driver.findElement(By.xpath("//*[@class='select2-results-dept-0 select2-result select2-result-selectable']"));
+        WebElement fieldKm = driver.findElement(By.xpath("//div[.='km']"));
+        //WebElement fieldKm = driver.findElement(By.xpath("//*[@class='select2-results-dept-0 select2-result select2-result-selectable']"));// if you want switch between km and miles
         fieldKm.click();
         Thread.sleep(1000);
 
