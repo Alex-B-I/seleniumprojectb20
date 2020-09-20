@@ -1,5 +1,6 @@
 package com.cybertek.tests.day6_dropdown_review_javafaker;
 
+import com.cybertek.utilities.SmartBearUtilities;
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -25,7 +26,7 @@ public class SmartBearTests {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         //get the page
         driver.get("http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx");
-
+        SmartBearUtilities.loginToSmartBear(driver);
     }
 
     @Test
@@ -35,6 +36,7 @@ public class SmartBearTests {
         //1. Open browser
         //2. Go to website:
         //http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx
+      /*
         //3. Enter username: “Tester”
         WebElement userNameInput = driver.findElement(By.id("ctl00_MainContent_username"));
         userNameInput.sendKeys("Tester");
@@ -47,6 +49,8 @@ public class SmartBearTests {
         WebElement loginButton = driver.findElement(By.id("ctl00_MainContent_login_button"));
         loginButton.click();
 
+       */
+
         //6. Print out count of all the links on landing page
        
         List<WebElement> allLinks = driver.findElements(By.xpath("//body//a"));
@@ -57,6 +61,8 @@ public class SmartBearTests {
         for (WebElement eachLink: allLinks){
             System.out.println("eachLink= "+eachLink.getText());
         }
+
+
 
 
     }

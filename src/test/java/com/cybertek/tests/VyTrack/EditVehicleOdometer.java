@@ -49,6 +49,7 @@ public class EditVehicleOdometer {
 
 //       7. Truck driver enter the Odometer Value
         Thread.sleep(2000);
+        ////*[@id="custom_entity_type_OdometerValue-uid-5f67a0145362e"]
         WebElement fieldOdometerValue = driver.findElement(By.xpath("//*[@data-name='field__odometer-value']"));
         Thread.sleep(1000);
         fieldOdometerValue.clear();
