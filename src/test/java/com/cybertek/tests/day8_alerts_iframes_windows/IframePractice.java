@@ -36,17 +36,17 @@ public class IframePractice {
 
     @Test
     public void p4_iframe_practice(){
+
         //3 ways of locating and switching an IFRAME.
         //1- ByIndex
         //driver.switchTo().frame(0);
 
         //2- By Id or Name: passing id attribute value
-        driver.switchTo().frame("mce_0_ifr");
+        //driver.switchTo().frame("mce_0_ifr");
 
         //3- Locate as a web element, then switch to it
         WebElement iframe = driver.findElement(By.id("mce_0_ifr"));
         driver.switchTo().frame(iframe);
-
 
         //Locating paragraph tag as a web element
         WebElement yourContentGoesHereText = driver.findElement(By.xpath("//p"));
@@ -61,6 +61,8 @@ public class IframePractice {
         WebElement headerText= driver.findElement(By.xpath("//h3"));
 
         Assert.assertTrue(headerText.isDisplayed(), "Header text is not displayed. Verification FAILED!!!");
+
+
 
     }
 
