@@ -1,5 +1,6 @@
 package com.cybertek.tests.day12_review_jsexecutor_pom;
 
+import com.cybertek.utilities.BrowserUtils;
 import com.cybertek.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -42,13 +43,80 @@ TC #16: Double Click Test
 
         Assert.assertTrue(actual.contains(expected));
 
+    }
+
+    @Test
+    public void p3_drag_and_drop(){
+        //1. Go to https://demos.telerik.com/kendo-ui/dragdrop/index
+        Driver.getDriver().get("https://demos.telerik.com/kendo-ui/dragdrop/index");
+
+        //2. Drag and drop the small circle to bigger circle.
+        WebElement acceptCookiesButton = Driver.getDriver().findElement(By.id("onetrust-accept-btn-handler"));
+        acceptCookiesButton.click();
+
+        //Locating circles
+        WebElement bigCircle = Driver.getDriver().findElement(By.id("droptarget"));
+        WebElement smallCircle = Driver.getDriver().findElement(By.id("draggable"));
+        BrowserUtils.wait(3);
+
+        Actions actions = new Actions(Driver.getDriver());
+        //DragAndDrop method expects to arguments:
+        // #1-Which webElement you want to drag: SOURCE
+        // #2-Where do you want to drop it? :TARGET
+        actions.dragAndDrop(smallCircle,bigCircle).perform();
+
+        //3. Assert:
+        //-Text in big circle changed to: “You did great!"
+
+        String expected ="You did great!";
+        String actual = bigCircle.getText();
+
+        Assert.assertTrue(actual.equals(expected));
+        BrowserUtils.wait(10);
+        Driver.closeDriver();
+    }
+
+    @Test
+    public void p3_drag_and_drop_LONGERWAY(){
+        //1. Go to https://demos.telerik.com/kendo-ui/dragdrop/index
+        Driver.getDriver().get("https://demos.telerik.com/kendo-ui/dragdrop/index");
+
+        //2. Drag and drop the small circle to bigger circle.
+        WebElement acceptCookiesButton = Driver.getDriver().findElement(By.id("onetrust-accept-btn-handler"));
+        acceptCookiesButton.click();
+
+        //Locating circles
+        WebElement bigCircle = Driver.getDriver().findElement(By.id("droptarget"));
+        WebElement smallCircle = Driver.getDriver().findElement(By.id("draggable"));
+        BrowserUtils.wait(3);
+
+        Actions actions = new Actions(Driver.getDriver());
+        //DragAndDrop method expects to arguments:
+        // #1-Which webElement you want to drag: SOURCE
+        // #2-Where do you want to drop it? :TARGET
+        //actions.dragAndDrop(smallCircle,bigCircle).perform();
+        //actions.clickAndHold(smallCircle).moveToElement(bigCircle).perform();
+
+        //First option
+        //actions.clickAndHold(smallCircle).moveToElement(bigCircle).release().perform();
+
+        //Second option
+        actions.clickAndHold(smallCircle).perform();
+        BrowserUtils.wait(2);
+        actions.moveToElement(bigCircle).perform();
+        BrowserUtils.wait(2);
+        actions.release().perform();
 
 
 
+        //3. Assert:
+        //-Text in big circle changed to: “You did great!"
 
+        String expected ="You did great!";
+        String actual = bigCircle.getText();
 
-
-
+        Assert.assertTrue(actual.equals(expected));
 
     }
+
 }
