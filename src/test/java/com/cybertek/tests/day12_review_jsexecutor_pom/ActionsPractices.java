@@ -2,6 +2,7 @@ package com.cybertek.tests.day12_review_jsexecutor_pom;
 
 import com.cybertek.utilities.BrowserUtils;
 import com.cybertek.utilities.Driver;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -118,5 +119,37 @@ TC #16: Double Click Test
         Assert.assertTrue(actual.equals(expected));
 
     }
+
+
+    @Test
+    public void p4_context_click_test(){
+        //TC #17: Context Click – HOMEWORK
+        //1. Go to https://the-internet.herokuapp.com/context_menu
+        Driver.getDriver().get("https://the-internet.herokuapp.com/context_menu");
+
+        // 2. Right click to the box.
+
+        //locating the box
+        WebElement box = Driver.getDriver().findElement(By.id("hot-spot"));
+
+        //to be able to right click, we need to create actions instance
+        Actions actions = new Actions(Driver.getDriver());
+        BrowserUtils.wait(2);
+
+        //using "context click" method to right click on the box
+        actions.contextClick(box).perform();
+
+        //3. Alert will open. Switch to alert
+        Alert alert = Driver.getDriver().switchTo().alert();
+
+        //4. Accept alert
+        BrowserUtils.wait(2);
+        alert.accept();
+
+        //No assertion needed for this practice.
+    }
+
+
+
 
 }
