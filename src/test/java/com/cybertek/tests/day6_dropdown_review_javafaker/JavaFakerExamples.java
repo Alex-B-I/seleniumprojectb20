@@ -31,7 +31,6 @@ public class JavaFakerExamples {
         
         String phoneNumber = faker.phoneNumber().cellPhone();
         System.out.println("phoneNumber = " + phoneNumber);
-     
 
 
 
