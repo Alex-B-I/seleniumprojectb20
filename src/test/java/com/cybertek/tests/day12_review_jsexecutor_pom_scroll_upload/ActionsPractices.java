@@ -1,4 +1,4 @@
-package com.cybertek.tests.day12_review_jsexecutor_pom;
+package com.cybertek.tests.day12_review_jsexecutor_pom_scroll_upload;
 
 import com.cybertek.utilities.BrowserUtils;
 import com.cybertek.utilities.Driver;
