@@ -13,7 +13,7 @@ public class UploadPractice {
 
         //Getting the page
         Driver.getDriver().get("http://practice.cybertekschool.com/upload");
-        Driver.getDriver().manage().window().maximize();
+
 
         //get the path of the file you want to upload
         //MAC: right click on the file you want to upload
